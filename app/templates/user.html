@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	
+     <div class="svi-korisnici">
+  <div class="row m-4">
+    <div class="col">
+      <!--a class="nav-link" href="{{ url_for('user', username=user.usernamename) }}"><h4>{{ user.username }}</h4></a>-->
+        {% if user.picture %}<td><img src="{{ user.picture }}" id="slika-izlet2"></td>
+            {% else %}<td><img src="https://media.archonia.com/images/samples/26/86/242686_s0.jpg" id="slika-izlet"></td>{% endif %}
+    </div>
+    <div class="col-6">
+        <h2 class="zeleno">{{ user.username }}</h2>
+        <h5 class="zeleno">O meni</h5>
+
+        {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}  
+        {% if user.last_seen %}<p>Last seen on:    {{ user.last_seen.strftime('%B %d %Y - %H:%M:%S') }}</p>{% endif %} 
+        {% if user == current_user %}
+
+                <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+            {% endif %}
+
+    </div>
+    
+   </div>
+    <hr>
+    <div class="row justify-content-center mb-4">
+        <h1 class="text-center zeleno ">Moji izleti</h1>
+    </div>
+</div>
+   
+    
+
+    {% for izlet in izleti %}
+
+    <div class="container svi">
+  <div class="row">
+    <div class="col">
+      <a class="nav-link" href="{{ url_for('izlet', name=izlet.name) }}"><h4>{{ izlet.name }}</h4></a>
+        <img src="{{ izlet.picture }}" id="slika">
+    </div>
+    <div class="col-6">
+        <h6>Opis izleta</h6>
+
+        <p>{{ izlet.description }}</p>    
+
+        <h6>Lokacija</h6>
+        <p>{{ izlet.location }}</p>
+
+        <h6>Transport</h6>
+        <p>{{ izlet.transport }}</p>
+    </div>
+    <div class="col">
+      <h6>Pocetak</h6>
+        <p>{{ izlet.begin }}</p>
+
+        <h6>Kraj</h6>
+        <p>{{ izlet.end }}</p>
+
+        <h6>Cijena</h6>
+        <p>{{ izlet.cost }} kn</p>
+        {% if izlet.user_id == current_user.id %}
+            <p><a href="{{ url_for('edit_izlet', id=izlet.id) }}">Edit your Izlet</a></p>
+        {% endif %}
+    </div>
+</div>
+
+    <hr>
+
+    {% endfor %}
+
+{% endblock %}

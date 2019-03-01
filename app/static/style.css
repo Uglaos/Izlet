@@ -1,0 +1,119 @@
+.navbar {
+	border-bottom: 4px solid #5ca34c;
+}
+
+
+.nav-link {
+	font-size: 1.5em;
+	color: #5ca34c;
+}
+
+.nav-link:hover {
+	color: #335a2a;
+	text-decoration: underline;
+}
+
+.login-button {
+	margin: 0.5em;
+	background-color: #5ca34c;
+	color: white;
+}
+
+.login-button:hover {
+	margin: 0.5em;
+	background-color: #97d27a;
+	color: #335a2a;
+}
+
+.sta {
+	padding-top: 20px;
+}
+
+.logo {
+	width: 200px;
+}
+
+/*.container {
+	background-image: url("https://www.bellavistahotel.com/fileadmin/images/active/passeggiate.jpg");
+	max-width: 2000px;
+	background-size: 100%;
+	height: 100vh;
+}*/
+
+.card {
+	opacity: 0.85;
+}
+
+.carousel {
+	height: 100vh;
+}
+
+#slika{
+	width: 40vh;
+	height: auto;
+}
+
+.svi-korisnici {
+	margin-top: 10px;
+}
+
+.zeleno {
+	color: #5ca34c;
+}
+
+#slika-izlet {
+	max-width: auto;
+	max-height: 150px;
+}
+#slika-izlet2 {
+	max-width: auto;
+	max-height: 250px;
+}
+
+
+#slika-izletsolo {
+	max-width: auto;
+	max-height: 250px;
+
+}
+
+.red{
+	width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 15px;
+
+}
+
+.video-fluid {
+  width: 100%;
+  height: auto;
+}
+
+#sakrij {
+	display: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0 rgba(0,123,255,.5)!important;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0 rgba(0,123,255,.5)!important;
+}
+
+.velika-slova {
+	font-size: 3vh;
+}
+
+.mala-velika-slova {
+	font-size: 2.5vh;
+	margin-bottom: 10px;
+}
+
+.skrati {
+	width: 50%;
+	
+}

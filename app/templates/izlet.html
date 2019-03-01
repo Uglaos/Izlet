@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+    <div class="bg-light mr-md-3 px-3 pt-2 px-md-5 text-center overflow-hidden">
+        <div class="my-3 ">
+          <h2 class="display-5 zeleno">{{ izlet.name }}</h2>
+          <p class="lead">Lokacija: {{ izlet.location }}</p>
+        </div>
+        <div class="bg-white box-shadow mx-auto mt-2" style="width: 80%; height: auto; border-radius: 21px 21px 0 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                         <img src="{{ izlet.picture }}" id="slika-izletsolo">
+                    </div>
+                    <div class="col">
+                         <h4 class="text-center zeleno">Opis izleta</h4>
+                         <p class="text-center">{{ izlet.description }}</p>
+                         <h4 class="text-center zeleno">Transport</h4>
+                         <p class="text-center">{{ izlet.transport }}</p>
+                     </div>
+                </div>
+                
+             </div>
+      </div>
+      <div class="bg-white box-shadow mx-auto mt-3" style="width: 80%; height: auto; border-radius: 21px 21px 0 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                         <h4 class="text-center zeleno">Pocetak izleta</h4>
+                         <p class="text-center">{{ izlet.begin }}</p>
+                    </div>
+                    <div class="col">
+                         <h4 class="text-center zeleno">Kraj izleta</h4>
+                         <p class="text-center">{{ izlet.end }}</p>
+                    </div>
+
+                </div>
+                
+             </div>
+      </div>
+      <div class="bg-white box-shadow mx-auto mt-3" style="width: 80%; height: auto; border-radius: 21px 21px 0 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center zeleno">Cijena</h4>
+                        <p class="text-center">{{ izlet.cost }} kn</p>
+                        <form action="" method="POST" novalidate>
+                            {{ form.hidden_tag() }}
+                            <p>{{ form.izlet_id(value= izlet.id ) }}</p>
+
+                            <p>{{ form.submit(type="submit", class="velika-slova btn btn-primary btn-block bg-success text-white border-0") }}</p>
+
+                        </form>
+                     </div>
+                </div>
+                <div class="col">
+                        <button onclick="myFunction()" class="mala-velika-slova btn btn-primary btn-block bg-success text-white border-0">Prikazi sve prijavljene korisnike</button>
+
+                        
+                        <div id="sakrij">
+
+      {% for user in useri %}
+      
+        <div class="svi-korisnici">
+            <div class="row m-4">
+                <div class="col">
+                    <h4 class="zeleno">{{ user.username }}</h4>
+                    <img src="{{ user.picture }}" id="slika-izlet">
+                </div>
+
+                <div class="col-6"> 
+                    <h5 class="zeleno">O meni</h5>
+                    <p>{{ user.about_me }}</p>   
+                    {% if user.last_seen %}<p>Last seen on: {{ user.last_seen.strftime('%B %d %Y - %H:%M:%S') }}</p>{% endif %}
+                </div>
+            </div>
+            <hr>
+        
+        {% endfor %}
+    </div>
+                        
+                    </div>
+             </div>
+      </div>
+      
+{% endblock %}
